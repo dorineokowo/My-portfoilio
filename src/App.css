@@ -1,0 +1,821 @@
+/**********************************************
+                    SITE WIDE
+***********************************************/
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+  background-color: #fff;
+  width: 100vw;
+  width: 100vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 300;
+  color: #035;
+}
+
+h1 {
+  font-size: 40px;
+  color: #035;
+  letter-spacing: 3px;
+}
+
+h2 {
+  font-size: 22px;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0 0 0 10px;
+}
+
+h4,
+h5 {
+  font-size: 20px;
+  margin: 0;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+/**********************************************
+                    NAVBAR
+***********************************************/
+
+/* Navbar container */
+.navbar {
+  background-color: #dcdcdc;
+  transition: background-color 0.3s ease-in-out;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar brand/logo */
+.navbar-brand img {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Navbar links */
+.navbar a {
+  color: #035;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Interactive hover effect on nav items */
+.navbar a:hover {
+  color: #ff6600;
+  transform: scale(1.1);
+}
+
+/* Responsive collapse */
+.collapse {
+  transition: height 0.3s ease-in-out;
+}
+
+/* Animating the hamburger menu icon */
+.navbar-toggler {
+  position: relative;
+  border: none;
+  background: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon {
+  background-color: #035;
+  width: 30px;
+  height: 3px;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  background-color: #035;
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+/* Hamburger animation when clicked */
+.navbar-toggler.open .navbar-toggler-icon {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler.open .navbar-toggler-icon::before {
+  transform: rotate(-90deg) translateX(10px);
+  top: 0;
+}
+
+.navbar-toggler.open .navbar-toggler-icon::after {
+  transform: rotate(-90deg) translateX(10px);
+  top: 0;
+}
+
+/* Navbar responsiveness */
+@media (max-width: 992px) {
+  .navbar {
+    height: auto;
+    padding: 15px;
+    background-color: #f4f4f4;
+  }
+
+  .navbar-nav {
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+
+  .collapse.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+}
+
+/* Nav items animation on small screens */
+.nav-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-toggler.open + .navbar-collapse .nav-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/*******************************************************************
+                     BUTTON
+********************************************************************/
+.custom-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #035; /* Button background color */
+  color: white; /* Text color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.custom-btn:hover {
+  background-color: orangered; /* Darker shade for hover */
+  cursor: pointer;
+  color: #000;
+}
+
+.custom-btn:active {
+  background-color: #004494; /* Even darker shade when clicked */
+}
+
+.custom-btn:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+/***************************************************************************
+                         HOME
+***************************************************************************/
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 2px;
+  box-shadow: 0 5px 15px orangered;
+  width: 100vw;
+}
+
+/* General Text Styling */
+.greeting1 {
+  font-family: "Playfair Display", serif;
+  color: #035;
+  font-size: 24px;
+  font-weight: 800;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Keyframes for Sequential Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting,
+.name,
+.loopText,
+.intro {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.greeting {
+  animation-delay: 0.5s;
+}
+
+.name {
+  animation-delay: 1s;
+}
+
+.loopText {
+  animation-delay: 1.5s;
+}
+
+.intro {
+  animation-delay: 2s;
+}
+
+/* Button Animation */
+
+.animate-btn {
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.animate-btn:hover {
+  background-color: orangered;
+  transform: scale(1.1);
+}
+
+/* Image Hover Effect */
+.dev-image {
+  width: 400px;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.dev-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px #035;
+  background-color: orangered;
+}
+
+/* Additional Transitions for Home Container */
+.home:hover {
+  transform: scale(1.02);
+  background-color: #dcdcdc;
+}
+
+/* General Text Styling */
+.loopText {
+  font-family: "Playfair Display", serif;
+  color: orangered;
+  font-size: 42px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.greeting {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 200;
+  color: #333;
+}
+
+.name {
+  color: orangered;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+}
+
+.intro {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #333;
+}
+
+/* Body Setup */
+
+/**********************************************
+                    CV
+***********************************************/
+
+.cvPage {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-in-out;
+  width: 100vw;
+  background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+    no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-color: #000;
+}
+
+/* Paper-like background for the content */
+.paperBackground {
+  background-color: #dcdcdc;
+  flex: 1;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the header layout */
+#info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Align text to the center on smaller screens */
+@media screen and (max-width: 799px) {
+  #info .left {
+    text-align: center;
+  }
+
+  #info .right {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  section .right {
+    margin: 20px;
+  }
+
+  section h3 {
+    font-weight: bold;
+  }
+}
+
+/* Grid layout for larger screens */
+@media screen and (min-width: 800px) {
+  #info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #info .right {
+    align-self: end;
+    text-align: right;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+/* Styling for the work experience section */
+.workItem {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.workItem p {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+/* Info and main content */
+#info,
+main {
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+#info {
+  margin: 30px auto;
+}
+
+main {
+  margin: 0 auto;
+}
+
+/*************************************************
+                    PROJECTS
+**************************************************/
+
+.projectsPage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-in-out;
+  width: 100vw;
+  border-top: 10px 10px;
+}
+/* General styles for the intro */
+.projects-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  justify-content: center;
+  align-self: center;
+}
+.projects-intro:hover {
+  transform: scale(1.02);
+  background-color: #dcdcdc;
+}
+.projects-intro h4 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: orangered;
+  margin-bottom: 10px 5px;
+}
+.projects-intro p {
+  font-size: 1.4rem;
+  color: #000;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Animation for displaying each line */
+
+.projects-intro h4 {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+}
+
+.projects-intro p {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+  animation-delay: 1s; /* This will delay the appearance of the paragraph */
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInLine {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Basic Card Styling */
+.project-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #035;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  max-width: 400px;
+  max-height: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Title and Description */
+.project-title {
+  font-size: 1.5rem;
+  color: #035;
+  margin: 2px 2px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect for the Card */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 10px #035;
+}
+
+/* Animation on hover - slight zoom effect */
+.project-card:hover::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 119, 204, 0.1);
+  transform: rotate(30deg);
+  transition: all 0.5s ease;
+}
+
+/* Add a small fade-in effect when the card is displayed */
+.project-card {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-title,
+.project-image,
+.project-description {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.project-title {
+  animation-delay: 0.5s;
+}
+
+.project-image {
+  animation-delay: 1s;
+}
+
+.project-description {
+  animation-delay: 1.5s;
+}
+
+/**********************************************
+                    CONTACT
+***********************************************/
+/* General styles for the contact page */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  justify-content: center;
+  align-self: center;
+  width: 100vw;
+  background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+    no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-color: #000;
+}
+
+.contact-page h4 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: orangered;
+  margin-bottom: 10px 5px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+}
+
+.contact-page p {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 40px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s forwards;
+  animation-delay: 1s;
+}
+
+/* Contact form styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  background-color: #dcdcdc;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-radius: 5%;
+  box-shadow: 0 5px 15px orangered;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+  animation: slideIn 0.8s ease forwards;
+  margin-top: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 600px;
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 150px;
+}
+
+.form-group label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #035;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: 5px;
+  font-size: 0.8rem;
+  color: #035;
+}
+
+/* Button styles */
+.submit-btn {
+  background-color: #035;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: orangered;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**************************************************
+                    FOOTER
+***************************************************/
+
+/* Footer Styling */
+.footer {
+  background-color: #035;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+}
+
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.footerSection {
+  margin: 10px;
+  flex: 1 1 200px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footerSection h4 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: orangered;
+  font-weight: 900;
+}
+
+.footerSection p,
+.footerSection a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footerSection a {
+  text-decoration: none;
+}
+
+.footerSection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin: 5px 0;
+}
+
+.footerSection ul li a {
+  color: #ccc;
+  transition: color 0.3s ease-in-out;
+}
+
+.footerSection ul li a:hover {
+  color: orangered;
+}
+
+.footerSectionSocialMedia a {
+  display: inline-block;
+  margin: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footerCopyright {
+  flex-basis: 100%;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  color: #ccc;
+}
+
+.footerCopyright p {
+  margin: 0;
+}
