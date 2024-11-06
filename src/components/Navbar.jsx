@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -10,52 +10,25 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          <img
-            src="/media/my-logo.png"
-            alt="Logo"
-            style={{ width: "150px", height: "100px" }}
-          />
-        </Link>
-        <button
-          className={`navbar-toggler ${isOpen ? "open" : ""}`}
-          type="button"
-          onClick={toggleMenu}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
-          id="navbarSupportedContent"
-        >
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={toggleMenu}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/cv" onClick={toggleMenu}>
-                CV
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects" onClick={toggleMenu}>
-                Projects
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={toggleMenu}>
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/">Dorine</Link>
+      </div>
+
+      <div className={`nav-links ${isOpen ? "open" : ""}`}>
+        <Link to="/">Home</Link>
+        <Link to="/cv">CV</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+
+      <div className="hamburger" onClick={toggleMenu}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

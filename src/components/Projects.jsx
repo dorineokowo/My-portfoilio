@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import TechEmpower from "../assets/TechEmpower.jpeg";
+import RottenTomatoes from "../assets/RottenTomatoes.png";
+import ShambaLink from "../assets/ShambaLink.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Projects() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+  const projectsData = [
+    {
+      title: "TechEmpower Rural",
+      imgSrc: TechEmpower,
+      imgAlt: "TechEmpowerRural",
+      content:
+        "NGO Website empowering rural youths with digital skills,internet access and solar power installation.",
+      link: "ghhytf",
+    },
+    {
+      title: "ShambaLink",
+      imgSrc: ShambaLink,
+      imgAlt: "ShambaLink",
+      content:
+        "A website connecting farmers with opportunities,agricultural education and markets",
+      link: "ghhytf",
+    },
+    {
+      title: "Rotten Tomatoes",
+      imgSrc: RottenTomatoes,
+      imgAlt: "RottenTomatoes",
+      content:
+        "RottenTomatoes.com landing page with information about a number of current movies.",
+      link: "ghhytf",
+    },
+    {
+      title: "TechEmpower Rural",
+      imgSrc: TechEmpower,
+      imgAlt: "TechEmpowerRural",
+      content:
+        "A website connecting farmers with opportunities,agricultural education and markets",
+      link: "ghhytf",
+    },
+  ];
   return (
-    <div className="projectsPage">
+    <div className={`projectsPage" ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+      <button onClick={toggleDarkMode} className="dark-mode-toggle">
+        {isDarkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+
       <div className="projects-intro">
         <h4>Welcome to my projects portfolio!</h4>
         <p>
@@ -12,102 +58,19 @@ function Projects() {
           project to learn more about it!
         </p>
       </div>
-
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
-      </div>
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
-      </div>
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
-      </div>
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
-      </div>
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
-      </div>
-      <div className="project-card">
-        <h3 className="project-title">Drumkit</h3>
-        <img
-          src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/How%20to%20Clean%20a%20Computer%20Keyboard1646149371308147.jpg"
-          alt="first project"
-          className="project-image"
-        />
-        <p className="project-description">
-          Allows users to play drum sounds by pressing keys on their keyboard.
-          The application provides a virtual drum kit interface with labeled
-          keys and associated drum sounds.
-        </p>
-        <a href="#" className="custom-btn">
-          View the project
-        </a>
+      <div className="card-container">
+        {projectsData.map((project, index) => (
+          <div key={index} className="project-card">
+            <h4 className="project-title">"{project.title}"</h4>
+            <img
+              src={project.imgSrc}
+              alt={project.imgAlt}
+              className="project-image"
+            />
+            <p className="project-description">{project.content}</p>
+            <a href={project.link}>View the project</a>
+          </div>
+        ))}
       </div>
     </div>
   );

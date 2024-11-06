@@ -29,16 +29,16 @@ function Cv() {
             </div>
             <div className="right">
               <p>
-                I am deeply committed to continuous professional development,
-                staying current with industry trends, and maintaining a high
-                level of productivity. In addition to my HR expertise, I have
-                developed a proficiency in web development, including HTML, CSS,
-                JavaScript, Bootstrap, React, Node.js. This combination of HR
-                knowledge and technical skills allows me to bridge the gap
-                between HR and technology. If you are seeking a results-driven
-                HR professional who can combine HR expertise with technical
-                skills to drive organizational success, I would welcome the
-                opportunity to contribute to your team.
+                As a web developer with two years of experience, I specialize in
+                creating dynamic, responsive, and user-friendly websites. My
+                technical expertise spans HTML, CSS, JavaScript, React and
+                Node.js, allowing me to deliver robust digital solutions
+                tailored to meet client needs. I bring a unique blend of
+                technical proficiency, creative problem-solving, and a
+                results-oriented mindset to every project. My commitment to
+                excellence drives me to not only meet but exceed client
+                expectations, ensuring that the solutions I develop are both
+                innovative and effective.
               </p>
             </div>
           </section>
@@ -51,14 +51,26 @@ function Cv() {
             <div className="right">
               <ul>
                 <li>
-                  HR Administration: Employee Relations, Labor laws and
-                  compliance, Talent acquisition, Recruitment and Selection,
-                  Training and Development, Performance Management, Occupational
-                  Health and Safety, Workplace Psychology, etc.
+                  HTML and CSS: Proficient in semantic HTML and modern CSS
+                  techniques, including Flexbox and Grid..
                 </li>
                 <li>
-                  HRIS: Experience in working with Human Resource Information
-                  Systems (HRIS) and Applicant Tracking Systems (ATS).
+                  Javascript: Strong understanding of JavaScript fundamentals,
+                  ES6 features, and DOM manipulation..
+                </li>
+                <li>
+                  React:Proficient in building dynamic user interfaces using
+                  React, with a solid understanding of component lifecycle,
+                  state management, and hooks.
+                </li>
+                <li>
+                  Version control:Experience with Git for version control and
+                  collaboration.
+                </li>
+                <li>
+                  {" "}
+                  Ability to create layouts that work on various screen sizes
+                  using media queries and responsive frameworks.
                 </li>
                 <li>
                   Communication: Strong interpersonal and communication skills
@@ -66,11 +78,8 @@ function Cv() {
                   verbal and written communication skills, effectively conveying
                   information to diverse audiences.
                 </li>
-                <li>Confidentiality</li>
+
                 <li>Teamwork</li>
-                <li>
-                  Web Development: HTML, CSS, JavaScript, Node.js, Bootstrap
-                </li>
               </ul>
             </div>
           </section>

@@ -1,5 +1,7 @@
+// src/components/Footer.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa"; // Importing icons
 
 function Footer() {
   return (
@@ -17,42 +19,47 @@ function Footer() {
           <h4>Navigation</h4>
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="cv.html">CV</a>
+              <Link to="/Cv">CV</Link>
             </li>
             <li>
-              <a href="projects.html">Projects</a>
+              <Link to="/Projects">Projects</Link>
             </li>
             <li>
-              <a href="contact.html">Contact</a>
+              <Link to="/Contact">Contact</Link>
             </li>
           </ul>
         </div>
         <div className="footerSection footerSectionSocialMedia">
           <h4>Follow Me</h4>
-          <a
-            href="https://linkedin.com/in/dorine-okowo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/dorineokowo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://twitter.com/yourprofile"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Twitter
-          </a>
+          <div className="socialLinks">
+            <a
+              href="https://linkedin.com/in/dorine-okowo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={24} /> {/* LinkedIn Icon */}
+            </a>
+            <a
+              href="https://github.com/dorineokowo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub size={24} /> {/* GitHub Icon */}
+            </a>
+            <a
+              href="https://x.com/okowo4454"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+            >
+              <FaTwitter size={24} /> {/* Twitter Icon */}
+            </a>
+          </div>
         </div>
       </div>
       <div className="footerCopyright">

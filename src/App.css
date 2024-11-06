@@ -6,7 +6,6 @@
 body {
   background-color: #fff;
   width: 100vw;
-  width: 100vw;
 }
 
 h1,
@@ -52,190 +51,139 @@ h5 {
 /**********************************************
                     NAVBAR
 ***********************************************/
-
-/* Navbar container */
 .navbar {
-  background-color: #dcdcdc;
-  transition: background-color 0.3s ease-in-out;
-  height: 60px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar brand/logo */
-.navbar-brand img {
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Navbar links */
-.navbar a {
-  color: #035;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  position: relative;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Interactive hover effect on nav items */
-.navbar a:hover {
-  color: #ff6600;
-  transform: scale(1.1);
-}
-
-/* Responsive collapse */
-.collapse {
-  transition: height 0.3s ease-in-out;
-}
-
-/* Animating the hamburger menu icon */
-.navbar-toggler {
-  position: relative;
-  border: none;
-  background: transparent;
-  transition: transform 0.3s ease-in-out;
-}
-
-.navbar-toggler-icon {
-  background-color: #035;
-  width: 30px;
-  height: 3px;
-  display: block;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: "";
-  background-color: #035;
-  width: 30px;
-  height: 3px;
-  position: absolute;
-  left: 0;
-  transition: all 0.3s ease;
-}
-
-.navbar-toggler-icon::before {
-  top: -8px;
-}
-
-.navbar-toggler-icon::after {
-  top: 8px;
-}
-
-/* Hamburger animation when clicked */
-.navbar-toggler.open .navbar-toggler-icon {
-  transform: rotate(45deg);
-}
-
-.navbar-toggler.open .navbar-toggler-icon::before {
-  transform: rotate(-90deg) translateX(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #1e1e1e, #035);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
   top: 0;
+  z-index: 1000;
 }
 
-.navbar-toggler.open .navbar-toggler-icon::after {
-  transform: rotate(-90deg) translateX(10px);
-  top: 0;
-}
-
-/* Navbar responsiveness */
-@media (max-width: 992px) {
-  .navbar {
-    height: auto;
-    padding: 15px;
-    background-color: #f4f4f4;
-  }
-
-  .navbar-nav {
-    text-align: center;
-    width: 100%;
-  }
-
-  .navbar-nav .nav-item {
-    margin: 10px 0;
-  }
-
-  .collapse.show {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-  }
-}
-
-/* Nav items animation on small screens */
-.nav-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.navbar-toggler.open + .navbar-collapse .nav-item {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.1s;
-}
-
-.logo {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: x-large;
+.navbar-logo a {
+  color: orangered;
+  font-size: 1.5rem;
   font-weight: bold;
-}
-
-/*******************************************************************
-                     BUTTON
-********************************************************************/
-.custom-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
   text-decoration: none;
-  background-color: #035; /* Button background color */
-  color: white; /* Text color */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s ease; /* Smooth hover transition */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.custom-btn:hover {
-  background-color: orangered; /* Darker shade for hover */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: orangered;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
   cursor: pointer;
-  color: #000;
 }
 
-.custom-btn:active {
-  background-color: #004494; /* Even darker shade when clicked */
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
 
-.custom-btn:focus {
-  outline: none; /* Remove default focus outline */
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.95);
+    text-align: center;
+    padding: 1rem 0;
+    position: static;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger .bar {
+    background-color: orangered;
+  }
 }
 
 /***************************************************************************
                          HOME
 ***************************************************************************/
 
+/* General Styles */
 .home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
   border-radius: 10px;
-  margin-top: 2px;
-  box-shadow: 0 5px 15px orangered;
   width: 100vw;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* General Text Styling */
-.greeting1 {
-  font-family: "Playfair Display", serif;
-  color: #035;
-  font-size: 24px;
-  font-weight: 800;
-  animation: fadeInUp 1s ease-out forwards;
+.light-mode {
+  background-color: #dcdcdc;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+.dark-mode .greeting,
+.dark-mode .intro {
+  color: white;
+}
+.dark-mode .testimonial-feedback {
+  color: black;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: orangered;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* Keyframes for Sequential Animation */
@@ -250,7 +198,6 @@ h5 {
   }
 }
 
-.greeting,
 .name,
 .loopText,
 .intro {
@@ -258,24 +205,17 @@ h5 {
   animation: fadeInUp 1s ease-out forwards;
 }
 
-.greeting {
-  animation-delay: 0.5s;
-}
-
 .name {
   animation-delay: 1s;
 }
-
 .loopText {
   animation-delay: 1.5s;
 }
-
 .intro {
   animation-delay: 2s;
 }
 
 /* Button Animation */
-
 .animate-btn {
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
@@ -287,23 +227,17 @@ h5 {
 
 /* Image Hover Effect */
 .dev-image {
-  width: 400px;
+  width: 350px;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  border-radius: 50%;
 }
 
 .dev-image:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 30px #035;
-  background-color: orangered;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Additional Transitions for Home Container */
-.home:hover {
-  transform: scale(1.02);
-  background-color: #dcdcdc;
-}
-
-/* General Text Styling */
+/* Text Styling */
 .loopText {
   font-family: "Playfair Display", serif;
   color: orangered;
@@ -313,27 +247,116 @@ h5 {
 }
 
 .greeting {
-  font-family: Georgia, serif;
   font-size: 18px;
   font-weight: 200;
   color: #333;
 }
-
 .name {
   color: orangered;
   font-size: 36px;
   font-weight: bold;
   font-family: "Playfair Display", serif;
 }
-
 .intro {
-  font-family: Georgia, serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 300;
   color: #333;
 }
 
-/* Body Setup */
+/* Skills */
+.mySkills h2 {
+  color: orangered;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  width: 350px;
+  height: 350px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-image: url("https://img.freepik.com/premium-photo/soft-gradient-aesthetic-abstract-blue-background_765331-878.jpg");
+  color: #035;
+}
+
+/* Testimonials */
+.testimonials {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  color: orangered;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.testimonial-card {
+  background: #bac9d1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-width: 90%; /* Keeps card responsive on smaller screens */
+}
+
+.testimonial-feedback {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .testimonial-cards {
+    flex-direction: column; /* Stacks cards vertically */
+    align-items: center; /* Centers the cards */
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials h2 {
+    font-size: 2rem; /* Smaller heading for mobile screens */
+  }
+
+  .testimonial-card {
+    width: 100%; /* Ensures the card takes full width */
+    padding: 15px;
+  }
+
+  .testimonial-feedback {
+    font-size: 1rem; /* Smaller font for feedback text */
+  }
+}
 
 /**********************************************
                     CV
@@ -350,6 +373,7 @@ h5 {
   background-size: cover;
   height: 100%;
   background-color: #000;
+  margin-top: 30px;
 }
 
 /* Paper-like background for the content */
@@ -437,40 +461,35 @@ main {
                     PROJECTS
 **************************************************/
 
-.projectsPage {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  animation: fadeIn 1s ease-in-out;
-  width: 100vw;
-  border-top: 10px 10px;
-}
 /* General styles for the intro */
 .projects-intro {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 20px;
+
   text-align: center;
   animation: fadeIn 1s ease-in-out;
   justify-content: center;
   align-self: center;
 }
-.projects-intro:hover {
+.projectsPage:hover {
   transform: scale(1.02);
   background-color: #dcdcdc;
 }
 .projects-intro h4 {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 500;
   color: orangered;
-  margin-bottom: 10px 5px;
+  font-family: "Playfair Display", serif;
 }
 .projects-intro p {
-  font-size: 1.4rem;
-  color: #000;
-  margin-bottom: 40px;
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 300;
+  color: #333;
+}
+.dark-mode .projects-intro p {
+  color: white;
 }
 
 /* Animation for displaying each line */
@@ -512,14 +531,14 @@ main {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 5px 20px #035;
-  padding: 20px;
-  margin: 20px;
+
+  margin-left: 20px;
   text-align: center;
   max-width: 400px;
   max-height: 500px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  position: relative;
+
   overflow: hidden;
 }
 
@@ -537,7 +556,7 @@ main {
 }
 .project-image {
   width: 100%;
-  height: auto;
+  height: 200px;
   border-radius: 10px;
   margin-bottom: 15px;
   transition: transform 0.3s ease;
@@ -557,7 +576,7 @@ main {
   left: -20px;
   width: 100%;
   height: 100%;
-  background: rgba(4, 119, 204, 0.1);
+  background: rgba(16, 2, 53, 0.192);
   transform: rotate(30deg);
   transition: all 0.5s ease;
 }
@@ -600,68 +619,58 @@ main {
 /**********************************************
                     CONTACT
 ***********************************************/
-/* General styles for the contact page */
 .contact-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 20px;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
   justify-content: center;
-  align-self: center;
-  width: 100vw;
-  background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
-    no-repeat;
-  background-size: cover;
-  height: 100%;
-  background-color: #000;
+  width: 100vw !important;
+  min-height: 100vh;
+  background-color: #dcdcdc;
+  color: #fff;
+}
+.dark-mode .contact-page {
+  background-color: #1e1e1e;
 }
 
 .contact-page h4 {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 500;
   color: orangered;
-  margin-bottom: 10px 5px;
-  opacity: 0;
-  transform: translateY(-20px);
+  margin-bottom: 10px;
   animation: fadeInDown 1s forwards;
 }
 
 .contact-page p {
-  font-size: 1.8rem;
-  color: #fff;
-  margin-bottom: 40px;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(-20px);
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: 350;
   animation: fadeInDown 1s forwards;
   animation-delay: 1s;
 }
 
-/* Contact form styles */
 .contact-form {
   display: flex;
   flex-direction: column;
-  width: 700px;
-  background-color: #dcdcdc;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  border-radius: 5%;
-  box-shadow: 0 5px 15px orangered;
+  width: 100%;
+  max-width: 600px;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20240409/pngtree-abstract-background-with-some-smooth-lines-in-it-see-more-my-image_15711632.jpg");
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
 }
 
 .form-group {
   position: relative;
-  margin-bottom: 30px;
-  animation: slideIn 0.8s ease forwards;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .form-group input,
 .form-group textarea {
-  width: 600px;
+  width: 100%;
   padding: 12px 16px;
   border: 2px solid #ddd;
   border-radius: 10px;
@@ -671,7 +680,7 @@ main {
 
 .form-group textarea {
   resize: none;
-  height: 150px;
+  height: 100px;
 }
 
 .form-group label {
@@ -698,20 +707,22 @@ main {
   color: #035;
 }
 
-/* Button styles */
 .submit-btn {
-  background-color: #035;
+  background-color: orangered;
+  justify-content: center;
+  align-self: center;
   color: white;
-  border: none;
-  padding: 12px 20px;
+  width: 120px;
+  border: 2px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  background-color: orangered;
+  background-color: #035;
   transform: scale(1.05);
 }
 
@@ -727,17 +738,55 @@ main {
   }
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-page h4 {
+    font-size: 2rem;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  .contact-page p {
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
   }
 }
 
+@media (max-width: 480px) {
+  .contact-page h4 {
+    font-size: 1.5rem;
+  }
+
+  .contact-page p {
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .submit-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+.dark-mode .contact-page p {
+  color: white;
+}
 /**************************************************
                     FOOTER
 ***************************************************/
@@ -751,6 +800,7 @@ main {
   padding: 20px;
   position: relative;
   bottom: 0;
+  margin-top: 20px;
 }
 
 .footerContainer {
