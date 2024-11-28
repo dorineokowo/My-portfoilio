@@ -148,7 +148,9 @@ h5 {
   align-items: center;
   border-radius: 10px;
   width: 100vw;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .light-mode {
@@ -187,21 +189,10 @@ h5 {
 }
 
 /* Keyframes for Sequential Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .name,
 .loopText,
 .intro {
-  opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }
 
@@ -217,7 +208,9 @@ h5 {
 
 /* Button Animation */
 .animate-btn {
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .animate-btn:hover {
@@ -228,7 +221,9 @@ h5 {
 /* Image Hover Effect */
 .dev-image {
   width: 350px;
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  transition:
+    transform 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
   border-radius: 50%;
 }
 
@@ -495,13 +490,13 @@ main {
 /* Animation for displaying each line */
 
 .projects-intro h4 {
-  opacity: 0;
+ 
   transform: translateY(-20px);
   animation: fadeInDown 1s forwards;
 }
 
 .projects-intro p {
-  opacity: 0;
+ 
   transform: translateY(-20px);
   animation: fadeInDown 1s forwards;
   animation-delay: 1s; /* This will delay the appearance of the paragraph */
@@ -536,7 +531,9 @@ main {
   text-align: center;
   max-width: 400px;
   max-height: 500px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 
   overflow: hidden;
@@ -600,7 +597,7 @@ main {
 .project-title,
 .project-image,
 .project-description {
-  opacity: 0;
+ 
   animation: fadeInUp 1s ease-out forwards;
 }
 
@@ -718,7 +715,9 @@ main {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .submit-btn:hover {
@@ -784,9 +783,21 @@ main {
   }
 }
 
-.dark-mode .contact-page p {
+.dark-mode .contact-page p,h1 {
   color: white;
 }
+
+.success-message {
+  color: green;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #e6ffe6;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /**************************************************
                     FOOTER
 ***************************************************/

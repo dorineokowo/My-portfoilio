@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-function Contact() {
+
+const Contact = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -11,46 +11,51 @@ function Contact() {
     email: "",
     message: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create form data to send
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("message", formData.message);
-
-    // Send the form data to formsubmit.co
-    fetch("https://formsubmit.co/dorineokowo0@gmail.com", {
-      method: "POST",
-      body: form,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(`Thank you, ${formData.name}, your message has been sent!`);
-        setFormData({ name: "", email: "", message: "" });
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const response = await fetch("http://localhost:5006/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" }); // Clear the form
+      } else {
+        const errorResponse = await response.json();
+        setErrorMessage(errorResponse.message || "Failed to send the email.");
+      }
+    } catch (error) {
+      setErrorMessage("An error occurred. Please try again later.");
+    }
   };
 
   return (
-    <div className={`contact-page ${isDarkMode ? "dark-mode" : "light-mode"}`}>
+    <div className={`contact" ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <button onClick={toggleDarkMode} className="dark-mode-toggle">
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </button>
       <div className="contact-page">
-        <h4>Nice to meet you!</h4>
+        {isSubmitted && (
+          <p className="success-message">
+            Thank you for reaching out! We'll get back to you soon.
+          </p>
+        )}
+
+        <h1>Nice to meet you!</h1>
         <p>I'd love to hear from you! Please fill out the form below.</p>
 
         <form onSubmit={handleSubmit} className="contact-form">
@@ -61,6 +66,7 @@ function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
+              placeholder=" "
             />
             <label>Name</label>
           </div>
@@ -72,6 +78,7 @@ function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder=" "
             />
             <label>Email</label>
           </div>
@@ -82,6 +89,7 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
+              placeholder=" "
             />
             <label>Message</label>
           </div>
@@ -90,9 +98,11 @@ function Contact() {
             Send Message
           </button>
         </form>
+
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </div>
     </div>
   );
-}
+};
 
 export default Contact;
